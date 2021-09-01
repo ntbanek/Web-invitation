@@ -1,0 +1,33 @@
+.Menu {
+    min-height:11vh;
+}
+
+.Canvas {
+    border-radius: 20px;
+    border: 5px;
+    box-shadow: 2px 2px 3px rgb(83, 68, 68);
+    margin-bottom:0px;
+}
+
+.App {
+    text-align: center;
+    position: related;
+    min-height:89vh;
+    margin-bottom:0px;
+}
+
+.tekst {
+    font-family: 'Amatic SC', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.imgShow {
+    border: 1px;
+    border-radius: 10px;
+}

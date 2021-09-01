@@ -1,0 +1,21 @@
+.container {
+    align-items: center;
+    width: 100%;
+    text-align:center;
+}
+
+.form_save {
+    display:inline-block;
+    vertical-align: top; 
+    margin: 10px;
+    align-items: center;
+    width: 350px;
+}
+
+Card {
+    padding: 10px;
+}
+
+textarea {
+    resize: none;
+  }

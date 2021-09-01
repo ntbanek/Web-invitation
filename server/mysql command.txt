@@ -1,0 +1,34 @@
+CREATE TABLE general_informations (
+	client_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name1 VARCHAR (50) NOT NULL,
+    name2 VARCHAR (50) NOT NULL,
+    date VARCHAR (50),
+    bgd_color VARCHAR (50),
+    bgd_image VARCHAR (150),
+    photo VARCHAR(150),
+	description MEDIUMTEXT
+);
+
+CREATE TABLE login_data (
+	client_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR (50) NOT NULL,
+	password VARCHAR (50) NOT NULL
+);
+
+CREATE TABLE wedding_informations (
+client_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+place VARCHAR (250),
+address VARCHAR (250),
+time VARCHAR (50),
+wedding_photo VARCHAR (250),
+wedding_description MEDIUMTEXT
+);
+
+CREATE TABLE reception_informations (
+client_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+reception_place VARCHAR (250),
+reception_address VARCHAR (250),
+reception_photo VARCHAR (250),
+reception_description MEDIUMTEXT
+);
+	
