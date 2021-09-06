@@ -1,8 +1,8 @@
 import React from "react";
-import { Button, CardMedia, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import { Text, StyleSheet } from 'react-native';
 import "./MainPage.css";
-import obraz from "./scp.JPG";
+
 
   function ReceptionPage(props){
 

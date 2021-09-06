@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import "./Register.css";
+import { Card } from '@material-ui/core';
+import { Text, StyleSheet } from 'react-native';
 
 class Register extends Component {
     constructor(props) {
@@ -67,7 +69,9 @@ class Register extends Component {
       return (
           <div className="container">
             <form onSubmit={this.handleSubmit}>
-            <label for="login" className="label label-default">Podaj login:</label>
+            <br/><br/><br/><br/><br/>
+               <Card style={{"padding": "20px"}}>
+            <Text>Wpisz login:</Text>
               <div className="form-group" id="login">
                 <input
                   type="text"
@@ -78,7 +82,7 @@ class Register extends Component {
                 />
               </div>
               <br />
-              <label for="password1">Podaj hasło:</label>
+              <Text>Wpisz hasło:</Text>
               <div  className="form-group" id="password1">
                 <input
                   type="password"
@@ -88,7 +92,7 @@ class Register extends Component {
                   onChange={this.handleInputChange}
                 />
               </div>
-              <label for="password2">Powtórz hasło:</label>
+              <Text>Powtórz hasło:</Text>
               <div className="form-group" id="password2">
                 <input
                   type="password"
@@ -100,10 +104,14 @@ class Register extends Component {
               </div>
               <br />
               <div >
-                <button className="btn btn-success" type="submit">
+                <button className="btn btn-success"type="submit">
                   Register
+                </button><br/><br/>
+                <button className="btn" >
+                  Powrót
                 </button>
               </div>
+              </Card>
             </form>
           </div>
       );

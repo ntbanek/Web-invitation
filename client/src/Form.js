@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import "./Form.css";
-import { Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import { Redirect } from 'react-router-dom';
 import { Card } from '@material-ui/core';
 import styled from 'styled-components';
@@ -274,10 +274,10 @@ class Form extends Component {
     {
     return (
       <div style={{"backgroundImage": `url('/image/background.jpg')`, "backgroundPosition": "center", "backgroundRepeat": "no-repeat", "backgroundSize": "cover"}}>
-        <br />
-        <div className="container">
+        <br/>
+        <div className="container" style={{'backgroundColor': '#FFFFFFE3', 'width': '85%', 'margin': 'auto'}}>
           <div className="nav_form">
-        <Text>
+        <Text style={styles.date}>
             Link dla gości: http://{window.location.href.split('/')[2]}/page/{this.state.userId}
         </Text><br /><br/>
         <button style={{"margin-right": 10}} onClick={()=>{this.openInNewTab('/page/' + this.state.userId)}}>
@@ -296,52 +296,63 @@ class Form extends Component {
           <Text>
             Informacje ogólne
         </Text>
-  
+        <Text>
+            Imię i nazwisko Panny Młodej
+        </Text>
             <div className="form-group">
               <input
                 type="text"
                 className="form-control"
                 name="name1"
-                placeholder="Name1"
+                placeholder="Imię i nazwisko"
                 defaultValue = {this.state.name1}
                 onChange={this.handleInputChange}
               />
             </div>
             <br />
+            <Text>
+            Imię i nazwisko Panna Młodego
+        </Text>
             <div className="form-group">
               <input
                 type="text"
                 className="form-control"
                 name="name2"
-                placeholder="Name2"
+                placeholder="Imię i nazwisko"
                 defaultValue = {this.state.name2}
                 onChange={this.handleInputChange}
               />
             </div>
             <br />
+            <Text>
+            Data ślubu
+        </Text>
             <div className="form-group">
               <input
                 type="date"
                 className="form-control"
                 name="date"
-                placeholder="Date"
+                placeholder="Data"
                 defaultValue = {this.state.date}
                 onChange={this.handleInputChange}
               />
             </div>
             <br />
+            <Text>
+            Kolor tła zaproszenia
+        </Text>
             <div className="form-group">
               <input
                 type="color"
                 className="form-control"
                 name="bgd_color"
-                placeholder="Bgd color"
+                placeholder="Kolor tła"
                 defaultValue = {this.state.bgd_color}
                 onChange={this.handleInputChange}
               />
             </div>
             <Text>
-            Obecny kolor:
+            Wybrany kolor tła:
             </Text>
             <div style={{width: 64, height: 32, backgroundColor:this.state.bgd_color}}>
             <Text>
@@ -349,6 +360,9 @@ class Form extends Component {
             </Text>  
             </div>
             <br />
+            <Text>
+            Obraz w tle zaproszenia:
+            </Text>
             <button onClick={this.handleClick1} className="form-control">
             Wybierz plik
             </button>
@@ -356,7 +370,7 @@ class Form extends Component {
                 type="file"
                 className="form-control-file"
                 name="bgd_image"
-                placeholder="Bgd image"
+                placeholder="Obraz tła"
                 defaultValue = {this.state.bgd_image}
                 onChange={this.handleInputFileChange}
                 ref={this.hiddenFileInput1}
@@ -375,7 +389,7 @@ class Form extends Component {
                 type="file"
                 className="form-control-file"
                 name="photo"
-                placeholder="Photo"
+                placeholder="Zdjęcie"
                 defaultValue = {this.state.photo}
                 onChange={this.handleInputFileChange}
                 ref={this.hiddenFileInput2}
@@ -387,12 +401,15 @@ class Form extends Component {
             {this.state.photo_src &&
             <img src={URL.createObjectURL(this.state.photo_src)} alt="" height="110" max-width="200" /> }
             <br />
+            <Text>
+            Dodatkowe informacje
+        </Text>
             <div className="form-group">
               <textarea
                 row="4"
                 className="form-control"
                 name="description"
-                placeholder="Description"
+                placeholder="Dodatkowe informacje"
                 defaultValue = {this.state.description}
                 onChange={this.handleInputChange}
               />
@@ -410,23 +427,29 @@ class Form extends Component {
             <Text>
             Ślub
         </Text>
+        <Text>
+          Miejsce zaślubin
+            </Text>
             <div className="form-group">
               <input
                 type="text"
                 className="form-control"
                 name="place"
-                placeholder="place"
+                placeholder="Miejsce ślubu"
                 defaultValue = {this.state.place}
                 onChange={this.handleInputChange}
               />
             </div>
             <br />
+            <Text>
+          Adres miejsca zaślubin
+            </Text>
             <div className="form-group">
               <input
                 type="text"
                 className="form-control"
                 name="address"
-                placeholder="Address"
+                placeholder="Adres"
                 defaultValue = {this.state.address}
                 onChange={this.handleInputChange}
               />
@@ -437,7 +460,7 @@ class Form extends Component {
                 type="time"
                 className="form-control"
                 name="time"
-                placeholder="Time"
+                placeholder="Godzina rozpoczęcia uroczystości"
                 defaultValue = {this.state.time}
                 onChange={this.handleInputChange}
               />
@@ -450,7 +473,7 @@ class Form extends Component {
                 type="file"
                 className="form-control-file"
                 name="wedding_photo"
-                placeholder="Photo place"
+                placeholder="Zdjęcie miejsca zaślubin"
                 defaultValue = {this.state.wedding_photo}
                 onChange={this.handleInputFileChange}
                 ref={this.hiddenFileInput3}
@@ -462,11 +485,14 @@ class Form extends Component {
                 {this.state.wedding_photo_src &&
             <img src={URL.createObjectURL(this.state.wedding_photo_src)} alt="" height="110" max-width="200" /> }
             <br />
+            <Text>
+            Dodatkowe informacje
+        </Text>
             <div className="form-group">
               <textarea
                 className="form-control"
                 name="wedding_description"
-                placeholder="Description place"
+                placeholder="Dodatkowe informacje"
                 defaultValue = {this.state.wedding_description}
                 onChange={this.handleInputChange}
               />
@@ -484,23 +510,29 @@ class Form extends Component {
             <Text>
             Przyjęcie weselne
         </Text>
+        <Text>
+            Miejsce wesela
+        </Text>
             <div className="form-group">
               <input
                 type="text"
                 className="form-control"
                 name="reception_place"
-                placeholder="reception place"
+                placeholder="Miejsce wesela"
                 defaultValue = {this.state.reception_place}
                 onChange={this.handleInputChange}
               />
             </div>
             <br />
+            <Text>
+            Adres miejsca wesela
+        </Text>
             <div className="form-group">
               <input
                 type="text"
                 className="form-control"
                 name="reception_address"
-                placeholder="Reception address"
+                placeholder="Adres"
                 defaultValue = {this.state.reception_address}
                 onChange={this.handleInputChange}
               />
@@ -513,7 +545,7 @@ class Form extends Component {
                 type="file"
                 className="form-control-file"
                 name="reception_photo"
-                placeholder="Photo reception"
+                placeholder="Zdjęcie miejsca wesela"
                 defaultValue = {this.state.reception_photo}
                 onChange={this.handleInputFileChange}
                 ref={this.hiddenFileInput4}
@@ -524,11 +556,14 @@ class Form extends Component {
             {this.state.reception_photo_src &&
             <img src={URL.createObjectURL(this.state.reception_photo_src)} alt="" height="110" max-width="200"/> }
             <br />
+            <Text>
+            Dodatkowe informacje
+        </Text>
             <div className="form-group">
               <textarea
                 className="form-control"
                 name="reception_description"
-                placeholder="reception_description"
+                placeholder="Dodatkowe informacje"
                 defaultValue = {this.state.reception_description}
                 onChange={this.handleInputChange}
               />
@@ -544,6 +579,7 @@ class Form extends Component {
         <br />
 
         </div>
+        <br/>
       </div>
       
     );
@@ -554,6 +590,24 @@ class Form extends Component {
     }
 }
 
+
 }
+
+const styles = StyleSheet.create({
+  names: {
+    fontFamily: 'Amatic SC',
+    fontSize: 50,
+    fontWeight: 'bold'
+  },
+  date: {
+    fontFamily: 'Amatic SC',
+    fontSize: 30
+  },
+  baseText: {
+    fontFamily: 'Amatic SC',
+    fontSize: 23
+  }
+});
+
 
 export default Form;

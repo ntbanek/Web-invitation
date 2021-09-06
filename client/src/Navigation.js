@@ -1,8 +1,6 @@
 import React from "react";
-import { Button, CardMedia, Grid } from '@material-ui/core';
-import { Text, StyleSheet } from 'react-native';
+import { Button } from '@material-ui/core';
 import "./MainPage.css";
-import { Redirect } from 'react-router-dom';
 import MainPage from "./MainPage";
 import WeddingPage from "./WeddingPage";
 import ReceptionPage from "./ReceptionPage";
@@ -75,9 +73,9 @@ import styled from 'styled-components';
       <div className="App" style={{"backgroundColor": !data ? "cornsilk" : data.bgd_color}}>
         <header className="Menu">
         <div id="menu" style= {{ padding: 5 }}>
-            <StyledButton id="navigation1" variant="contained" color="primary" onClick={handleSubmit} name="1">
+            <Button id="navigation1" variant="contained" color="primary" style={{ margin: 20, marginBottom: 10, marginTop: 10, width:160, fontSize: 20, fontFamily: 'Amatic SC', fontWeight: "bold",  padding: 0, backgroundColor: !data ? "cornsilk" : LightenDarkenColor(data.bgd_color,-50)   }} onClick={handleSubmit} name="1">
             Informacje ogólne
-            </StyledButton>
+            </Button>
             <Button id="navigation2" variant="contained" color="primary" style={{ margin: 20, marginBottom: 10, marginTop: 10, width:160, fontSize: 20, fontFamily: 'Amatic SC', fontWeight: "bold",  padding: 0, backgroundColor: !data ? "cornsilk" : LightenDarkenColor(data.bgd_color,-50)   }} onClick={handleSubmit} name="2">
             Ślub
             </Button>
@@ -97,6 +95,8 @@ import styled from 'styled-components';
       </div>
         </div>
         )
+
+        
     
 }
 
