@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import "./Register.css";
 import { Card } from '@material-ui/core';
-import { Text, StyleSheet } from 'react-native';
+import { Text } from 'react-native';
 
 class Register extends Component {
     constructor(props) {
@@ -69,47 +69,44 @@ class Register extends Component {
       return (
           <div className="container">
             <form onSubmit={this.handleSubmit}>
-            <br/><br/><br/><br/><br/>
-               <Card style={{"padding": "20px"}}>
-            <Text>Wpisz login:</Text>
+               <Card style={{"padding": "20px", marginTop: '160px'}}>
+               <h4>REJESTRACJA</h4><br/><br/>
               <div className="form-group" id="login">
                 <input
                   type="text"
                   className="form-control"
                   name="username"
-                  placeholder="Login"
+                  placeholder="Wpisz login"
                   onChange={this.handleInputChange}
                 />
               </div>
-              <br />
-              <Text>Wpisz hasło:</Text>
+      
               <div  className="form-group" id="password1">
                 <input
                   type="password"
                   className="form-control"
                   name="password"
-                  placeholder="Hasło"
+                  placeholder="Wpisz hasło"
                   onChange={this.handleInputChange}
                 />
               </div>
-              <Text>Powtórz hasło:</Text>
               <div className="form-group" id="password2">
                 <input
                   type="password"
                   className="form-control"
                   name="password_repeated"
-                  placeholder="Hasło"
+                  placeholder="Powtórz hasło"
                   onChange={this.handleInputChange}
                 />
               </div>
               <br />
               <div >
-                <button className="btn btn-success"type="submit">
-                  Register
-                </button><br/><br/>
-                <button className="btn" >
-                  Powrót
-                </button>
+                <button className="btn btn-regular"  type="submit">
+                  Zarejestruj się
+                </button><br/>
+                <button className="btn btn-link" onClick={()=>{this.props.history.push('/login')}}>
+            Powrót
+            </button>
               </div>
               </Card>
             </form>

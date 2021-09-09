@@ -31,3 +31,13 @@ html, body {
     border: 1px;
     border-radius: 10px;
 }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .btn-success {
+    background-color: #885876!important;
+    background-image: linear-gradient(to bottom,#d18eca 0,#885876 100%);
+    border-color:#91518b !important;
+}
+
+.btn-regular {
+    background-color: #c8c2c6
+}

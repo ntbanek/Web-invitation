@@ -277,13 +277,15 @@ class Form extends Component {
         <br/>
         <div className="container" style={{'backgroundColor': '#FFFFFFE3', 'width': '85%', 'margin': 'auto'}}>
           <div className="nav_form">
-        <Text style={styles.date}>
+            <h2> FORMULARZ </h2>
+            <Text> Uzupełnij informacje dla swoich gości! </Text>
+        <h4>
             Link dla gości: http://{window.location.href.split('/')[2]}/page/{this.state.userId}
-        </Text><br /><br/>
-        <button style={{"margin-right": 10}} onClick={()=>{this.openInNewTab('/page/' + this.state.userId)}}>
+        </h4><br />
+        <button className="btn btn-regular" style={{"margin-right": 10}} onClick={()=>{this.openInNewTab('/page/' + this.state.userId)}}>
         Przejdź do mojej strony
         </button>
-        <button onClick={()=>{
+        <button className="btn btn-regular" onClick={()=>{
           localStorage.setItem('userId','');
           this.props.history.push('/login');
           }}>
@@ -294,8 +296,8 @@ class Form extends Component {
           <form className="form_save" onSubmit={this.handleSubmit_first} style={{"textAlign": "center"}}>
           <Card style={{"padding": "10px"}}>
           <Text>
-            Informacje ogólne
-        </Text>
+            INFORMACJE OGÓLNE
+        </Text><br/><br/>
         <Text>
             Imię i nazwisko Panny Młodej
         </Text>
@@ -309,7 +311,7 @@ class Form extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-            <br />
+         
             <Text>
             Imię i nazwisko Panna Młodego
         </Text>
@@ -323,12 +325,13 @@ class Form extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-            <br />
+           
             <Text>
             Data ślubu
         </Text>
             <div className="form-group">
               <input
+              style={{verticalAlign: 'middle',textAlign: 'center', width: '150px', margin: 'auto'}}
                 type="date"
                 className="form-control"
                 name="date"
@@ -337,33 +340,25 @@ class Form extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-            <br />
+           
             <Text>
             Kolor tła zaproszenia
-        </Text>
-            <div className="form-group">
+        </Text><br/>
+            <div className="form-group" style={{width: 100, margin: 'auto'}}>
               <input
                 type="color"
                 className="form-control"
                 name="bgd_color"
                 placeholder="Kolor tła"
-                defaultValue = {this.state.bgd_color}
+                value = {this.state.bgd_color}
                 onChange={this.handleInputChange}
               />
             </div>
-            <Text>
-            Wybrany kolor tła:
-            </Text>
-            <div style={{width: 64, height: 32, backgroundColor:this.state.bgd_color}}>
-            <Text>
-            {this.state.bgd_color_old}
-            </Text>  
-            </div>
-            <br />
+         
             <Text>
             Obraz w tle zaproszenia:
             </Text>
-            <button onClick={this.handleClick1} className="form-control">
+            <button onClick={this.handleClick1} className="form-control" style={{width: '200px', margin: 'auto'}}>
             Wybierz plik
             </button>
           <input
@@ -377,12 +372,16 @@ class Form extends Component {
                 style={{"display": 'none'}}
               />
             {this.state.bgd_image &&
-            <img src={'/image/' + this.state.bgd_image} alt="" height="110" max-width="200" /> 
+            <img src={'/image/' + this.state.bgd_image} alt="" height="110" max-width="200" style={{'margin':'10px'}}/> 
             }
             {this.state.bgd_image_src &&
-            <img src={URL.createObjectURL(this.state.bgd_image_src)} alt="" height="110" max-width="200"/> }
-            <br />
-            <button onClick={this.handleClick2} className="form-control">
+            <img src={URL.createObjectURL(this.state.bgd_image_src)} alt="" height="110" max-width="200" style={{'margin':'10px'}}/> }
+       
+           <br/>
+            <Text>
+            Zdjęcie Pary Młodej
+            </Text>
+            <button onClick={this.handleClick2} className="form-control" style={{width: '200px', margin: 'auto'}}>
             Wybierz plik
             </button>
           <input
@@ -396,11 +395,11 @@ class Form extends Component {
                 style={{"display": 'none'}}
               />
             {this.state.photo && 
-            <img src={'/image/' + this.state.photo} alt="" height="110" max-width="200"/>
+            <img src={'/image/' + this.state.photo} alt="" height="110" max-width="200" style={{'margin':'10px'}}/>
              }
             {this.state.photo_src &&
-            <img src={URL.createObjectURL(this.state.photo_src)} alt="" height="110" max-width="200" /> }
-            <br />
+            <img src={URL.createObjectURL(this.state.photo_src)} alt="" height="110" max-width="200" style={{'margin':'10px'}}/> }
+<br/>
             <Text>
             Dodatkowe informacje
         </Text>
@@ -416,7 +415,7 @@ class Form extends Component {
             </div>
             <br />
             <div >
-              <button className="btn btn-success" type="submit">
+              <button className="btn btn-regular" type="submit">
                 Zapisz dane
               </button>
             </div>
@@ -425,8 +424,8 @@ class Form extends Component {
             <form className="form_save" onSubmit={this.handleSubmit_second}>
             <Card style={{"padding": "10px"}}>
             <Text>
-            Ślub
-        </Text>
+            ŚLUB
+        </Text><br/><br/>
         <Text>
           Miejsce zaślubin
             </Text>
@@ -440,7 +439,7 @@ class Form extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-            <br />
+   
             <Text>
           Adres miejsca zaślubin
             </Text>
@@ -454,9 +453,13 @@ class Form extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-            <br />
+        
+            <Text>
+          Czas rozpoczęcia uroczystości
+            </Text>
             <div className="form-group">
               <input
+                style={{verticalAlign: 'middle',textAlign: 'center', width: '100px', margin: 'auto'}}
                 type="time"
                 className="form-control"
                 name="time"
@@ -465,8 +468,11 @@ class Form extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-            <br />
-            <button onClick={this.handleClick3} className="form-control">
+      
+            <Text>
+          Zdjęcie miejsca ślubu
+            </Text>
+            <button onClick={this.handleClick3} className="form-control" style={{width: '200px', margin: 'auto'}}>
             Wybierz plik
             </button>
           <input
@@ -480,10 +486,10 @@ class Form extends Component {
                 style={{"display": 'none'}}
               />
             {this.state.wedding_photo &&
-            <img src={'/image/' + this.state.wedding_photo} alt="" height="110" max-width="200"/> 
+            <img src={'/image/' + this.state.wedding_photo} alt="" height="110" max-width="200" style={{'margin':'10px'}}/> 
     }
                 {this.state.wedding_photo_src &&
-            <img src={URL.createObjectURL(this.state.wedding_photo_src)} alt="" height="110" max-width="200" /> }
+            <img src={URL.createObjectURL(this.state.wedding_photo_src)} alt="" height="110" max-width="200" style={{'margin':'10px'}}/> }
             <br />
             <Text>
             Dodatkowe informacje
@@ -499,7 +505,7 @@ class Form extends Component {
             </div>
             <br />
             <div >
-              <button className="btn btn-success" type="submit">
+              <button className="btn btn-regular" type="submit">
                 Zapisz dane
               </button>
             </div>
@@ -508,8 +514,8 @@ class Form extends Component {
             <form className="form_save" onSubmit={this.handleSubmit_third}>
             <Card style={{"padding": "10px"}}>
             <Text>
-            Przyjęcie weselne
-        </Text>
+            PRZYJĘCIE WESELNE
+        </Text><br/><br/>
         <Text>
             Miejsce wesela
         </Text>
@@ -523,7 +529,7 @@ class Form extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-            <br />
+            
             <Text>
             Adres miejsca wesela
         </Text>
@@ -537,8 +543,11 @@ class Form extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-            <br />
-            <button onClick={this.handleClick4} className="form-control">
+          
+            <Text>
+          Zdjęcie miejsca wesela
+            </Text>
+            <button onClick={this.handleClick4} className="form-control" style={{width: '200px', margin: 'auto'}}>
             Wybierz plik
             </button>
           <input
@@ -552,10 +561,10 @@ class Form extends Component {
                 style={{"display": 'none'}}
               />
             {this.state.reception_photo && 
-            <img src={'/image/' + this.state.reception_photo} alt="" height="110" max-width="200"/> }
+            <img src={'/image/' + this.state.reception_photo} alt="" height="110" max-width="200" style={{'margin':'10px'}}/> }
             {this.state.reception_photo_src &&
-            <img src={URL.createObjectURL(this.state.reception_photo_src)} alt="" height="110" max-width="200"/> }
-            <br />
+            <img src={URL.createObjectURL(this.state.reception_photo_src)} alt="" height="110" max-width="200" style={{'margin':'10px'}}/> }
+           <br/>
             <Text>
             Dodatkowe informacje
         </Text>
@@ -568,9 +577,9 @@ class Form extends Component {
                 onChange={this.handleInputChange}
               />
             </div>
-            <br />
+           
             <div>
-              <button className="btn btn-success" type="submit">
+              <button className="btn btn-regular" type="submit">
                 Zapisz dane
               </button>
             </div>
@@ -600,8 +609,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   date: {
-    fontFamily: 'Amatic SC',
-    fontSize: 30
+    fontFamily: 'Helvetica Neue',
+    fontSize: 20
   },
   baseText: {
     fontFamily: 'Amatic SC',

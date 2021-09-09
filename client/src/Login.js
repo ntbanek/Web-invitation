@@ -59,14 +59,15 @@ class Login extends Component {
         });
     };
 
+
+
   
     render() {
       return (
         <div className="App" style={{"height": "100%"}}>
             <form onSubmit={this.handleSubmit} className="">
-            <br/><br/><br/><br/><br/><br/>
-               <Card style={{"padding": "20px"}}>
-              <Text>LOGOWANIE</Text>
+               <Card style={{"padding": "20px", marginTop: '160px'}}>
+              <h4>LOGOWANIE</h4>
               <br/><br/>
               <div className="form-group">
                 <input
@@ -83,13 +84,13 @@ class Login extends Component {
                   type="password"
                   className="form-control"
                   name="password"
-                  placeholder="Password"
+                  placeholder="Hasło"
                   onChange={this.handleInputChange} 
                 />
               </div>
               <br />
               <div>
-                <button className="btn btn-success" type="submit">
+                <button className="btn btn-regular" type="submit">
                   Zaloguj się
                 </button>
               </div>
